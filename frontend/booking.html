@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RepetitorHub — Reserve a Time Slot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">🎓 RepetitorHub</div>
+        <nav>
+            <a href="index.html">Find Tutors</a>
+            <a href="booking.html" class="active">Book Lesson</a>
+        </nav>
+    </header>
+
+    <main class="container booking-container">
+        <div class="booking-card">
+            <h2>Book a Time Slot</h2>
+            <p class="subtitle">Select the student, subject, and available tutor time slot below.</p>
+
+            <form id="bookingForm" onsubmit="submitBooking(event)">
+                <div class="form-group">
+                    <label for="studentSelect">Select Student</label>
+                    <select id="studentSelect" required>
+                        <option value="">Loading students...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="subjectSelect">Select Subject</label>
+                    <select id="subjectSelect" required onchange="loadAvailableSlots()">
+                        <option value="">Choose a subject...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="slotSelect">Available Time Slot</label>
+                    <select id="slotSelect" required disabled>
+                        <option value="">Select a subject first...</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn-primary btn-block">
+                    ⚡ Confirm Booking
+                </button>
+            </form>
+
+            <div id="bookingAlert" class="alert hidden"></div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', initBookingPage);
+    </script>
+</body>
+</html>

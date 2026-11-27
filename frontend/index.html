@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RepetitorHub — Find Expert Tutors</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">🎓 RepetitorHub</div>
+        <nav>
+            <a href="index.html" class="active">Find Tutors</a>
+            <a href="booking.html">Book Lesson</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Hero Search Section -->
+        <section class="hero-section">
+            <div class="hero-badge">🚀 Your Gateway to High Scores</div>
+            <h1>Find the Best Tutors for IELTS, SAT & Sciences</h1>
+            <p class="hero-subtitle">1-on-1 online lessons with verified expert tutors and flexible schedules.</p>
+            
+            <div class="search-card">
+                <div class="search-group">
+                    <div class="field">
+                        <label for="subjectSelect">Subject</label>
+                        <select id="subjectSelect">
+                            <option value="">All Subjects</option>
+                            <option value="IELTS">IELTS</option>
+                            <option value="SAT">SAT</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Russian Language">Russian Language</option>
+                            <option value="Korean Language">Korean Language</option>
+                        </select>
+                    </div>
+                    
+                    <div class="field">
+                        <label for="maxPriceInput">Max Price ($/hr)</label>
+                        <input type="number" id="maxPriceInput" placeholder="e.g. 30" min="5" max="150">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn-primary" onclick="searchTutors()">
+                        Search Tutors →
+                    </button>
+                    <button class="btn-secondary" onclick="resetFilters()">
+                        Reset Filters
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tutors Feed Section -->
+        <section class="results-section">
+            <div class="section-header">
+                <div>
+                    <h2>Available Tutors</h2>
+                    <p class="sub-text">Browse verified educators ready to help you reach your goals</p>
+                </div>
+                <span class="count-badge"><span id="tutorCount">0</span> Available</span>
+            </div>
+
+            <div id="tutorsContainer" class="tutor-grid">
+                <!-- Tutor cards will be rendered dynamically by app.js -->
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', searchTutors);
+    </script>
+</body>
+</html>
